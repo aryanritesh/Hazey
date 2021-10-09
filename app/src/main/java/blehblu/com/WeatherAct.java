@@ -1,7 +1,5 @@
 package blehblu.com;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
@@ -55,14 +54,14 @@ public class WeatherAct extends AppCompatActivity {
             @Override
             public void onResponse(Call<OpenWeatherMap> call, Response<OpenWeatherMap> response) {
                 if(response.isSuccessful()) {
-                    cityW.setText(response.body().getName() + ", " + response.body().getSys().getCountry());
-                    tempW.setText(response.body().getMain().getTemp() + "°C");
-                    weatherConditionW.setText(response.body().getWeather().get(0).getDescription());
-                    humidityWeather.setText(" : " + response.body().getMain().getHumidity());
-                    maxTempWeather.setText(" : " + response.body().getMain().getTempMax() + "°C");
-                    minTempWeather.setText(" :" + response.body().getMain().getTempMin() + "°C");
-                    pressureWeather.setText(" : " + response.body().getMain().getPressure());
-                    windWeather.setText(" : " + response.body().getWind().getSpeed());
+                    cityW.setText(""+response.body().getName() + ", " + response.body().getSys().getCountry());
+                    tempW.setText(""+response.body().getMain().getTemp() + "°C");
+                    weatherConditionW.setText(""+response.body().getWeather().get(0).getDescription());
+                    humidityWeather.setText(""+response.body().getMain().getHumidity()+"%");
+                    maxTempWeather.setText(""+response.body().getMain().getTempMax() + "°C");
+                    minTempWeather.setText(""+response.body().getMain().getTempMin() + "°C");
+                    pressureWeather.setText(""+response.body().getMain().getPressure());
+                    windWeather.setText(""+ response.body().getWind().getSpeed());
 
                     String iconCode = response.body().getWeather().get(0).getIcon();
                     Picasso.get().load("https://openweathermap.org/img/wn/" + iconCode + "@2x.png")

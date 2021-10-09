@@ -94,11 +94,11 @@ public class MainActivity extends AppCompatActivity {
                 city.setText(response.body().getName()+", "+response.body().getSys().getCountry());
                 temp.setText(response.body().getMain().getTemp()+"°C");
                 weatherCondition.setText(response.body().getWeather().get(0).getDescription());
-                humidity.setText(" : "+response.body().getMain().getHumidity());
-                maxTemp.setText(" : "+response.body().getMain().getTempMax()+"°C");
-                minTemp.setText(" :"+response.body().getMain().getTempMin()+"°C");
-                pressure.setText(" : "+response.body().getMain().getPressure());
-                wind.setText(" : "+response.body().getWind().getSpeed());
+                humidity.setText(""+response.body().getMain().getHumidity()+"%");
+                maxTemp.setText(""+response.body().getMain().getTempMax()+"°C");
+                minTemp.setText(""+response.body().getMain().getTempMin()+"°C");
+                pressure.setText(""+response.body().getMain().getPressure());
+                wind.setText(""+response.body().getWind().getSpeed());
 
                 String iconCode=response.body().getWeather().get(0).getIcon();
                 Picasso.get().load("https://openweathermap.org/img/wn/"+iconCode+"@2x.png")
