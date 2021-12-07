@@ -17,7 +17,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class WeatherAct extends AppCompatActivity {
-    private TextView cityW,tempW,weatherConditionW,humidityWeather,maxTempWeather,minTempWeather,pressureWeather,windWeather;
+    private TextView cityW,tempW,weatherConditionW,humidityWeather,maxTempWeather,minTempWeather,pressureWeather,windWeather,
+            details1,humidity1,maxTemp1,minTemp1,pressure1,wind1;
     private ImageView imageViewWeather;
     private Button search;
     private EditText location;
@@ -36,6 +37,13 @@ public class WeatherAct extends AppCompatActivity {
         imageViewWeather=findViewById(R.id.imageViewWeather);
         search=findViewById(R.id.search);
         location=findViewById(R.id.citySearch);
+        details1=findViewById(R.id.details1);
+        humidity1=findViewById(R.id.humidityW);
+        maxTemp1=findViewById(R.id.maxTempW);
+        minTemp1=findViewById(R.id.minTempW);
+        pressure1=findViewById(R.id.pressureW);
+        wind1=findViewById(R.id.windW);
+
 
         search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +62,13 @@ public class WeatherAct extends AppCompatActivity {
             @Override
             public void onResponse(Call<OpenWeatherMap> call, Response<OpenWeatherMap> response) {
                 if(response.isSuccessful()) {
+                    imageViewWeather.setVisibility(View.VISIBLE);
+                    details1.setVisibility(View.VISIBLE);
+                    humidity1.setVisibility(View.VISIBLE);
+                    maxTemp1.setVisibility(View.VISIBLE);
+                    minTemp1.setVisibility(View.VISIBLE);
+                    pressure1.setVisibility(View.VISIBLE);
+                    wind1.setVisibility(View.VISIBLE);
                     cityW.setText(""+response.body().getName() + ", " + response.body().getSys().getCountry());
                     tempW.setText(""+response.body().getMain().getTemp() + "°C");
                     weatherConditionW.setText(""+response.body().getWeather().get(0).getDescription());
@@ -65,7 +80,7 @@ public class WeatherAct extends AppCompatActivity {
 
                     String iconCode = response.body().getWeather().get(0).getIcon();
                     Picasso.get().load("https://openweathermap.org/img/wn/" + iconCode + "@2x.png")
-                            .placeholder(R.drawable.ic_launcher_background).into(imageViewWeather);
+                            .placeholder(R.drawable.ic_launcher_foreground).into(imageViewWeather);
                 }
                 else
                 {

@@ -26,7 +26,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView city,temp,weatherCondition,humidity,maxTemp,minTemp,pressure,wind;
+    private TextView city,temp,weatherCondition,humidity,maxTemp,minTemp,pressure,wind,
+            humidityText,maxTempText,minTempText,pressureText,windText,details;
     private ImageView imageView;
     private FloatingActionButton fab;
     LocationManager locationManager;
@@ -45,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
         pressure=findViewById(R.id.pressureT);
         wind=findViewById(R.id.windT);
         imageView=findViewById(R.id.imageView);
+        humidityText=findViewById(R.id.humidity);
+        maxTempText=findViewById(R.id.maxTemp);
+        minTempText=findViewById(R.id.minTemp);
+        pressureText=findViewById(R.id.pressure);
+        windText=findViewById(R.id.wind);
+        details=findViewById(R.id.details1);
         fab=findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(requestCode==1 && permissions.length>0 && ContextCompat.checkSelfPermission(this,
           Manifest.permission.ACCESS_FINE_LOCATION)==PackageManager.PERMISSION_GRANTED){
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,500,50,locationListener);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1,50,locationListener);
         }
     }
     public void getWeather(double lat,double lon){
@@ -91,6 +98,13 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<OpenWeatherMap>() {
             @Override
             public void onResponse(Call<OpenWeatherMap> call, Response<OpenWeatherMap> response) {
+                imageView.setVisibility(View.VISIBLE);
+                details.setText("Details : ");
+                humidityText.setText("Humidity : ");
+                maxTempText.setText("Max Temperature : ");
+                minTempText.setText("Min Temperature : ");
+                pressureText.setText("Pressure : ");
+                windText.setText("Wind Speed : ");
                 city.setText(response.body().getName()+", "+response.body().getSys().getCountry());
                 temp.setText(response.body().getMain().getTemp()+"°C");
                 weatherCondition.setText(response.body().getWeather().get(0).getDescription());
@@ -102,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String iconCode=response.body().getWeather().get(0).getIcon();
                 Picasso.get().load("https://openweathermap.org/img/wn/"+iconCode+"@2x.png")
-                        .placeholder(R.drawable.ic_launcher_background).into(imageView);
+                        .placeholder(R.drawable.ic_launcher_foreground).into(imageView);
 
 
             }

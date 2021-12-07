@@ -71,11 +71,11 @@
                 android:id="@+id/imageViewWeather"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/ic_launcher_background"
                 android:layout_marginStart="25dp"
                 android:scaleType="fitXY"
+                android:src="@drawable/ic_launcher_foreground"
 
-                />
+                android:visibility="invisible" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/details"
+            android:id="@+id/details1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -114,7 +114,8 @@
             android:fontFamily="@font/aldrich"
             android:text="Details :"
             android:textColor="#FFFFFF"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:visibility="invisible" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -125,64 +126,69 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="0dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/humidityW"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/aldrich"
                     android:text="Humidity : "
                     android:textColor="#FFFFFF"
-                    android:textSize="26sp" />
+                    android:textSize="26sp"
+                    android:visibility="invisible" />
 
                 <TextView
                     android:id="@+id/maxTempW"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/aldrich"
                     android:text="Max. Temprature :"
                     android:textColor="#FFFFFF"
-                    android:textSize="26sp" />
+                    android:textSize="26sp"
+                    android:visibility="invisible" />
 
                 <TextView
                     android:id="@+id/minTempW"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/aldrich"
                     android:text="Min. Temprature :"
                     android:textColor="#FFFFFF"
-                    android:textSize="26sp" />
+                    android:textSize="26sp"
+                    android:visibility="invisible" />
 
                 <TextView
                     android:id="@+id/pressureW"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/aldrich"
                     android:text="Pressure :"
                     android:textColor="#FFFFFF"
-                    android:textSize="26sp" />
+                    android:textSize="26sp"
+                    android:visibility="invisible" />
 
                 <TextView
                     android:id="@+id/windW"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/aldrich"
                     android:text="Wind Speed :"
                     android:textColor="#FFFFFF"
-                    android:textSize="26sp" />
+                    android:textSize="26sp"
+                    android:visibility="invisible" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="0dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -190,7 +196,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/aldrich"
                     android:textColor="#FFFFFF"
                     android:textSize="25sp" />
@@ -200,7 +206,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="@font/aldrich"
                     android:textColor="#FFFDFD"
                     android:textSize="25sp" />
@@ -210,7 +216,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/aldrich"
                     android:textColor="#FFFDFD"
                     android:textSize="25sp" />
@@ -220,7 +226,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/aldrich"
                     android:textColor="#FFFDFD"
                     android:textSize="25sp" />
@@ -230,7 +236,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="27dp"
+                    android:layout_marginTop="7dp"
                     android:fontFamily="@font/aldrich"
                     android:textColor="#FFFDFD"
                     android:textSize="25sp" />
