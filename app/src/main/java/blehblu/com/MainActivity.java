@@ -99,12 +99,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<OpenWeatherMap> call, Response<OpenWeatherMap> response) {
                 imageView.setVisibility(View.VISIBLE);
-                details.setText("Details : ");
-                humidityText.setText("Humidity : ");
-                maxTempText.setText("Max Temperature : ");
-                minTempText.setText("Min Temperature : ");
-                pressureText.setText("Pressure : ");
-                windText.setText("Wind Speed : ");
+                details.setVisibility(View.VISIBLE);
+                humidityText.setVisibility(View.VISIBLE);
+                maxTempText.setVisibility(View.VISIBLE);
+                minTempText.setVisibility(View.VISIBLE);
+                pressureText.setVisibility(View.VISIBLE);
+                windText.setVisibility(View.VISIBLE);
                 city.setText(response.body().getName()+", "+response.body().getSys().getCountry());
                 temp.setText(response.body().getMain().getTemp()+"°C");
                 weatherCondition.setText(response.body().getWeather().get(0).getDescription());
